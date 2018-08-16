@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: July 1, 2018
+ * Released on: August 16, 2018
  */
 html,
 body,
@@ -6929,11 +6929,24 @@ i.icon {
 .ios .toolbar .f7-icons {
   font-size: 22px;
 }
+.ios .navbar .auto-size-icon,
+.ios .toolbar .auto-size-icon {
+  font-size: 22px;
+  width: 22px;
+  height: 22px;
+}
 .ios .tabbar .f7-icons,
 .ios .tabbar-labels .f7-icons {
   font-size: 25px;
 }
-.ios .item-media .f7-icons {
+.ios .tabbar .auto-size-icon,
+.ios .tabbar-labels .auto-size-icon {
+  font-size: 25px;
+  width: 25px;
+  height: 25px;
+}
+.ios .item-media .f7-icons,
+.ios .item-media .auto-size-icon {
   font-size: 25px;
   width: 29px;
   height: 29px;
@@ -6943,6 +6956,9 @@ i.icon {
 }
 .ios .item-media .icon {
   color: #808080;
+}
+.ios .svg-icon {
+  background-color: #808080;
 }
 .ios .color-theme-red .icon-back,
 .ios .icon-back.color-red,
@@ -7128,10 +7144,26 @@ i.icon {
   width: 24px;
   height: 24px;
 }
+.md .navbar .auto-size-icon,
+.md .toolbar .auto-size-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
+.md .tabbar .auto-size-icon,
+.md .tabbar-labels .auto-size-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+}
 .md .item-media .icon {
   color: #737373;
 }
-.md .item-media .material-icons {
+.md .svg-icon {
+  background-color: #737373;
+}
+.md .item-media .material-icons,
+.md .item-media .auto-size-icon {
   font-size: 24px;
   width: 24px;
   height: 24px;

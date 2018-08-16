@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: July 1, 2018
+ * Released on: August 16, 2018
  */
 
 import Template7 from 'template7';
@@ -43,53 +43,8 @@ import Subnavbar from './components/subnavbar/subnavbar';
 import TouchRipple from './components/touch-ripple/touch-ripple';
 import Modal from './components/modal/modal';
 
-import Dialog from './components/dialog/dialog';
-import Popup from './components/popup/popup';
-import LoginScreen from './components/login-screen/login-screen';
-import Popover from './components/popover/popover';
-import Actions from './components/actions/actions';
-import Sheet from './components/sheet/sheet';
-import Toast from './components/toast/toast';
-import Preloader from './components/preloader/preloader';
-import Progressbar from './components/progressbar/progressbar';
-import Sortable from './components/sortable/sortable';
-import Swipeout from './components/swipeout/swipeout';
-import Accordion from './components/accordion/accordion';
-import VirtualList from './components/virtual-list/virtual-list';
-import ListIndex from './components/list-index/list-index';
-import Timeline from './components/timeline/timeline';
-import Tabs from './components/tabs/tabs';
-import Panel from './components/panel/panel';
-import Card from './components/card/card';
-import Chip from './components/chip/chip';
-import Form from './components/form/form';
-import Input from './components/input/input';
-import Checkbox from './components/checkbox/checkbox';
-import Radio from './components/radio/radio';
-import Toggle from './components/toggle/toggle';
-import Range from './components/range/range';
-import Stepper from './components/stepper/stepper';
-import SmartSelect from './components/smart-select/smart-select';
-import Grid from './components/grid/grid';
-import Calendar from './components/calendar/calendar';
-import Picker from './components/picker/picker';
-import InfiniteScroll from './components/infinite-scroll/infinite-scroll';
-import PullToRefresh from './components/pull-to-refresh/pull-to-refresh';
-import Lazy from './components/lazy/lazy';
-import DataTable from './components/data-table/data-table';
-import Fab from './components/fab/fab';
-import Searchbar from './components/searchbar/searchbar';
-import Messages from './components/messages/messages';
-import Messagebar from './components/messagebar/messagebar';
-import Swiper from './components/swiper/swiper';
-import PhotoBrowser from './components/photo-browser/photo-browser';
-import Notification from './components/notification/notification';
-import Autocomplete from './components/autocomplete/autocomplete';
-import Tooltip from './components/tooltip/tooltip';
-import Gauge from './components/gauge/gauge';
-import Vi from './components/vi/vi';
-import Elevation from './components/elevation/elevation';
-import Typography from './components/typography/typography';
+//IMPORT_COMPONENTS
+
 if ("es" !== 'es') {
   if (typeof window !== 'undefined') {
     // Template7
@@ -119,53 +74,8 @@ Framework7.use([
   Subnavbar,
   TouchRipple,
   Modal,
-  Dialog,
-  Popup,
-  LoginScreen,
-  Popover,
-  Actions,
-  Sheet,
-  Toast,
-  Preloader,
-  Progressbar,
-  Sortable,
-  Swipeout,
-  Accordion,
-  VirtualList,
-  ListIndex,
-  Timeline,
-  Tabs,
-  Panel,
-  Card,
-  Chip,
-  Form,
-  Input,
-  Checkbox,
-  Radio,
-  Toggle,
-  Range,
-  Stepper,
-  SmartSelect,
-  Grid,
-  Calendar,
-  Picker,
-  InfiniteScroll,
-  PullToRefresh,
-  Lazy,
-  DataTable,
-  Fab,
-  Searchbar,
-  Messages,
-  Messagebar,
-  Swiper,
-  PhotoBrowser,
-  Notification,
-  Autocomplete,
-  Tooltip,
-  Gauge,
-  Vi,
-  Elevation,
-  Typography]);
+  //INSTALL_COMPONENTS
+]);
 
 export { Template7, $ as Dom7, Request, Utils, Device, Support };
 export default Framework7;
