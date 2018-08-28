@@ -212,7 +212,7 @@ const Input = {
     }
     function clearInput() {
       const $clicked = $(this);
-      const $inputEl = $clicked.siblings('input, textarea').eq(0);
+      const $inputEl = $clicked.parent().find('input, textarea').eq(0);
       const previousValue = $inputEl.val();
       $inputEl
         .val('')

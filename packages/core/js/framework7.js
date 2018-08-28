@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: August 16, 2018
+ * Released on: August 28, 2018
  */
 
 (function (global, factory) {
@@ -15769,7 +15769,7 @@
       }
       function clearInput() {
         var $clicked = $$1(this);
-        var $inputEl = $clicked.siblings('input, textarea').eq(0);
+        var $inputEl = $clicked.parent().find('input, textarea').eq(0);
         var previousValue = $inputEl.val();
         $inputEl
           .val('')
