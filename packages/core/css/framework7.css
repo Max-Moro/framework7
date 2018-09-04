@@ -7,11 +7,12 @@
  *
  * Released under the MIT License
  *
- * Released on: August 28, 2018
+ * Released on: September 4, 2018
  */
 html,
 body,
-.framework7-root {
+.framework7-root,
+.framework7-root > form {
   position: relative;
   height: 100%;
   width: 100%;
