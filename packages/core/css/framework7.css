@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: September 4, 2018
+ * Released on: September 7, 2018
  */
 html,
 body,
@@ -29115,6 +29115,34 @@ iframe#viAd {
 .display-none {
   display: none !important;
 }
+.flex-direction-row {
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+  -webkit-flex-direction: row !important;
+  -ms-flex-direction: row !important;
+  flex-direction: row !important;
+}
+.flex-direction-column {
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: normal !important;
+  -webkit-flex-direction: column !important;
+  -ms-flex-direction: column !important;
+  flex-direction: column !important;
+}
+.flex-direction-row-reverse {
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: reverse !important;
+  -webkit-flex-direction: row-reverse !important;
+  -ms-flex-direction: row-reverse !important;
+  flex-direction: row-reverse !important;
+}
+.flex-direction-column-reverse {
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: reverse !important;
+  -webkit-flex-direction: column-reverse !important;
+  -ms-flex-direction: column-reverse !important;
+  flex-direction: column-reverse !important;
+}
 .flex-shrink-0 {
   -webkit-flex-shrink: 0 !important;
   -ms-flex-negative: 0 !important;
@@ -29644,4 +29672,7 @@ iframe#viAd {
 }
 .md .border-color-black {
   border-color: #000000 !important;
+}
+.color-inherit {
+  color: inherit !important;
 }

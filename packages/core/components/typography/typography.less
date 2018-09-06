@@ -14,6 +14,10 @@
 @display: flex, block, inline-flex, inline-block, inline, none;
 .rules-loop(@display, display);
 
+// Flex Direction
+@flexDirection: row, column, row-reverse, column-reverse;
+.rules-loop(@flexDirection, flex-direction);
+
 // Flex Shrink
 @shrinks: 0,1,2,3,4,5,6,7,8,9,10;
 .rules-loop(@shrinks, flex-shrink);
@@ -92,4 +96,8 @@
 }
 & when (@includeMdTheme) {
   @import url('./typography-md.less');
+}
+
+.color-inherit {
+  color: inherit !important;
 }
