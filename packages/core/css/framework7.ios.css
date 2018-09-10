@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: September 7, 2018
+ * Released on: September 10, 2018
  */
 html,
 body,
@@ -83,7 +83,7 @@ p {
 .ios body {
   font-family: -apple-system, SF UI Text, Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #000;
-  line-height: 1.4;
+  line-height: 1;
 }
 .ios .md-only,
 .ios .if-md {
@@ -1765,8 +1765,7 @@ html.with-statusbar.device-iphone-x .framework7-root {
 /* === Content Block === */
 .ios .block {
   margin: 35px 0;
-  padding: 0 15px;
-  color: #6d6d72;
+  padding: 0 10px;
 }
 .ios .block-title {
   text-transform: uppercase;
@@ -1782,14 +1781,13 @@ html.with-statusbar.device-iphone-x .framework7-root {
   margin-top: 10px;
 }
 .ios .block-strong {
-  color: #000;
   background: #fff;
-  padding: 15px 15px;
+  padding: 10px;
 }
 .ios .block-strong:before {
   content: '';
   position: absolute;
-  background-color: #c8c7cc;
+  background-color: #ccc;
   display: block;
   z-index: 15;
   top: 0;
@@ -1812,7 +1810,7 @@ html.with-statusbar.device-iphone-x .framework7-root {
 .ios .block-strong:after {
   content: '';
   position: absolute;
-  background-color: #c8c7cc;
+  background-color: #ccc;
   display: block;
   z-index: 15;
   top: auto;
@@ -1841,7 +1839,7 @@ html.with-statusbar.device-iphone-x .framework7-root {
 }
 .ios .block-header,
 .ios .block-footer {
-  padding: 0 15px;
+  padding: 0 10px;
   color: #8f8f94;
 }
 .ios .block .block-header,
@@ -2533,7 +2531,7 @@ li.list-group-title:before {
 .ios .simple-list li:after {
   content: '';
   position: absolute;
-  background-color: #c8c7cc;
+  background-color: #ccc;
   display: block;
   z-index: 15;
   top: auto;
@@ -2567,7 +2565,7 @@ li.list-group-title:before {
 .ios .links-list a:after {
   content: '';
   position: absolute;
-  background-color: #c8c7cc;
+  background-color: #ccc;
   display: block;
   z-index: 15;
   top: auto;
@@ -2675,7 +2673,7 @@ li.list-group-title:before {
 .ios .item-divider:before {
   content: '';
   position: absolute;
-  background-color: #c8c7cc;
+  background-color: #ccc;
   display: block;
   z-index: 15;
   top: 0;
@@ -2698,7 +2696,7 @@ li.list-group-title:before {
 .ios .list-group-title:before {
   content: '';
   position: absolute;
-  background-color: #c8c7cc;
+  background-color: #ccc;
   display: block;
   z-index: 15;
   top: 0;
@@ -2721,7 +2719,7 @@ li.list-group-title:before {
 .ios .list .list-button:after {
   content: '';
   position: absolute;
-  background-color: #c8c7cc;
+  background-color: #ccc;
   display: block;
   z-index: 15;
   top: auto;
@@ -2744,7 +2742,7 @@ li.list-group-title:before {
 .ios .list .item-inner:after {
   content: '';
   position: absolute;
-  background-color: #c8c7cc;
+  background-color: #ccc;
   display: block;
   z-index: 15;
   top: auto;
@@ -2767,7 +2765,7 @@ li.list-group-title:before {
 .ios .list ul:before {
   content: '';
   position: absolute;
-  background-color: #c8c7cc;
+  background-color: #ccc;
   display: block;
   z-index: 15;
   top: 0;
@@ -2790,7 +2788,7 @@ li.list-group-title:before {
 .ios .list ul:after {
   content: '';
   position: absolute;
-  background-color: #c8c7cc;
+  background-color: #ccc;
   display: block;
   z-index: 15;
   top: auto;
@@ -2850,7 +2848,7 @@ li.list-group-title:before {
 .ios li:last-child li .item-inner:after {
   content: '';
   position: absolute;
-  background-color: #c8c7cc;
+  background-color: #ccc;
   display: block;
   z-index: 15;
   top: auto;
@@ -8046,7 +8044,7 @@ html.with-statusbar.device-iphone-x .panel {
 .card-header:after {
   content: '';
   position: absolute;
-  background-color: #e1e1e1;
+  background-color: #ccc;
   display: block;
   z-index: 15;
   top: auto;
@@ -8075,7 +8073,7 @@ html.device-pixel-ratio-3 .card-header:after {
 .card-footer:before {
   content: '';
   position: absolute;
-  background-color: #e1e1e1;
+  background-color: #ccc;
   display: block;
   z-index: 15;
   top: 0;
@@ -8110,7 +8108,7 @@ html.device-pixel-ratio-3 .card-footer:before {
 .ios .card-outline {
   -webkit-box-shadow: none;
   box-shadow: none;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.24);
 }
 .ios .card-header a.link,
 .ios .card-footer a.link {
@@ -8132,11 +8130,11 @@ html.device-pixel-ratio-3 .card-footer:before {
   min-width: 44px;
 }
 .ios .card-content-padding {
-  padding: 15px;
+  padding: 10px;
 }
 .ios .card-content-padding > .list,
 .ios .card-content-padding > .block {
-  margin: -15px;
+  margin: -10px;
 }
 .ios .card-header,
 .ios .card-footer {
@@ -17360,16 +17358,16 @@ iframe#viAd {
   width: 100% !important;
 }
 .ios .padding {
-  padding: 15px !important;
+  padding: 10px !important;
 }
 .ios .padding-top {
-  padding-top: 15px !important;
+  padding-top: 10px !important;
 }
 .ios .padding-bottom {
-  padding-bottom: 15px !important;
+  padding-bottom: 10px !important;
 }
 .ios .padding-left {
-  padding-left: 15px !important;
+  padding-left: 10px !important;
 }
 .ios .padding-left-ios-edge {
   padding-left: constant(safe-area-inset-left);
@@ -17388,38 +17386,38 @@ iframe#viAd {
   padding-bottom: env(safe-area-inset-bottom);
 }
 .ios .padding-right {
-  padding-right: 15px !important;
+  padding-right: 10px !important;
 }
 .ios .padding-vertical {
-  padding-top: 15px !important;
-  padding-bottom: 15px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
 }
 .ios .padding-horizontal {
-  padding-left: 15px !important;
-  padding-right: 15px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
 }
 .ios .margin {
-  margin: 15px !important;
+  margin: 10px !important;
 }
 .ios .margin-top {
-  margin-top: 15px !important;
+  margin-top: 10px !important;
 }
 .ios .margin-bottom {
-  margin-bottom: 15px !important;
+  margin-bottom: 10px !important;
 }
 .ios .margin-left {
-  margin-left: 15px !important;
+  margin-left: 10px !important;
 }
 .ios .margin-right {
-  margin-right: 15px !important;
+  margin-right: 10px !important;
 }
 .ios .margin-vertical {
-  margin-top: 15px !important;
-  margin-bottom: 15px !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
 }
 .ios .margin-horizontal {
-  margin-left: 15px !important;
-  margin-right: 15px !important;
+  margin-left: 10px !important;
+  margin-right: 10px !important;
 }
 .ios .text-color-red {
   color: #ff3b30 !important;
@@ -17504,4 +17502,68 @@ iframe#viAd {
 }
 .color-inherit {
   color: inherit !important;
+}
+.ellipsis-two-line {
+  overflow: hidden;
+  height: 28px;
+  line-height: 1;
+}
+.ellipsis-two-line:before {
+  content: "";
+  float: left;
+  width: 1px;
+  height: 28px;
+}
+.ellipsis-two-line .ellipsis-text {
+  margin-left: -1px;
+  float: right;
+  width: 100%;
+}
+.ellipsis-two-line:after {
+  content: '\02026';
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(65%, #ffffff));
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), #ffffff 65%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 65%);
+  float: right;
+  position: relative;
+  left: 100%;
+  top: -14px;
+  margin-left: -3em;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 3em;
+  padding-right: 1px;
+  text-align: right;
+}
+.ellipsis-five-line {
+  overflow: hidden;
+  height: 70px;
+  line-height: 1;
+}
+.ellipsis-five-line:before {
+  content: "";
+  float: left;
+  width: 1px;
+  height: 70px;
+}
+.ellipsis-five-line .ellipsis-text {
+  margin-left: -1px;
+  float: right;
+  width: 100%;
+}
+.ellipsis-five-line:after {
+  content: '\02026';
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(65%, #ffffff));
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), #ffffff 65%);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), #ffffff 65%);
+  float: right;
+  position: relative;
+  left: 100%;
+  top: -14px;
+  margin-left: -3em;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 3em;
+  padding-right: 1px;
+  text-align: right;
 }

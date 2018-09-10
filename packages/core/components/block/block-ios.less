@@ -4,8 +4,7 @@
   @import (multiple) '../../less/vars-ios.less';
   .block {
     margin: 35px 0;
-    padding: 0 15px;
-    color: #6d6d72;
+    padding: 0 @spacing;
   }
   .block-title {
     text-transform: uppercase;
@@ -17,9 +16,8 @@
     }
   }
   .block-strong {
-    color: #000;
     background: #fff;
-    padding: 15px 15px;
+    padding: @spacing;
   }
   .hairline-root('.block-strong', top, @blockBorderColor);
   .hairline-root('.block-strong', bottom, @blockBorderColor);
@@ -33,7 +31,7 @@
 
   // Header/Footer
   .block-header, .block-footer {
-    padding: 0 15px;
+    padding: 0 @spacing;
     color: #8f8f94;
   }
   .block {

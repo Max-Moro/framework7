@@ -3,7 +3,7 @@
   @import (multiple) '../../less/vars-md.less';
   .block {
     margin: 32px 0;
-    padding: 0 16px;
+    padding: 0 @spacing;
   }
   .block-title {
     color: rgba(0,0,0,0.54);
@@ -15,7 +15,7 @@
     }
   }
   .block-strong {
-    padding: 16px;
+    padding: @spacing;
   }
   .hairline-root('.block-strong', top, @blockBorderColor);
   .hairline-root('.block-strong', bottom, @blockBorderColor);
@@ -29,7 +29,7 @@
   }
   // Header/Footer
   .block-header, .block-footer {
-    padding: 0 16px;
+    padding: 0 @spacing;
     color: rgba(0,0,0,0.54);
   }
   .block {
