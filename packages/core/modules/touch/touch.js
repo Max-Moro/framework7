@@ -1,5 +1,5 @@
 import { window, document } from 'ssr-window';
-import $ from 'dom7';
+import $ from '../../dom7';
 import Support from '../../utils/support';
 import Device from '../../utils/device';
 

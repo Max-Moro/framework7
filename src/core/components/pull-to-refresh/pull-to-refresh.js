@@ -1,4 +1,4 @@
-import $ from 'dom7';
+import $ from '../../dom7';
 import Utils from '../../utils/utils';
 import PullToRefresh from './pull-to-refresh-class';
 import ConstructorMethods from '../../utils/constructor-methods';

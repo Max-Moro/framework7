@@ -1,4 +1,4 @@
-import $ from 'dom7';
+import $ from '../../dom7';
 import { document } from 'ssr-window';
 import Utils from '../../utils/utils';
 import Modal from '../modal/modal-class';

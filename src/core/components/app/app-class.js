@@ -1,4 +1,4 @@
-import $ from 'dom7';
+import $ from '../../dom7';
 import Template7 from 'template7';
 import { window, document } from 'ssr-window';
 import Utils from '../../utils/utils';

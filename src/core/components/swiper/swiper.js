@@ -1,4 +1,4 @@
-import $ from 'dom7';
+import $ from '../../dom7';
 import Swiper from './swiper-class/swiper';
 import ConstructorMethods from '../../utils/constructor-methods';
 

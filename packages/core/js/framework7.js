@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: September 10, 2018
+ * Released on: September 21, 2018
  */
 
 (function (global, factory) {
@@ -772,7 +772,7 @@
             arr.push(tempParent.childNodes[i]);
           }
         } else {
-          if (!context && selector[0] === '#' && !selector.match(/[ .<>:~]/)) {
+          if (!context && selector[0] === '#' && !selector.match(/[ .<>~]/)) {
             // Pure ID selector
             els = [doc.getElementById(selector.trim().split('#')[1])];
           } else {
@@ -1774,7 +1774,9 @@
     return this;
   }
 
-
+  function escapeСolon(selector) {
+    return selector.replace(/:/g, '\\\\:');
+  }
 
 
   var Methods = Object.freeze({
@@ -1836,7 +1838,8 @@
   	remove: remove,
   	detach: detach,
   	add: add,
-  	empty: empty
+  	empty: empty,
+    escapeСolon: escapeСolon
   });
 
   function scrollTo() {
@@ -6523,8 +6526,8 @@
     // Show Tab
     var $parentPageEl = $$1(options.parentPageEl || router.currentPageEl);
     var tabEl;
-    if ($parentPageEl.length && $parentPageEl.find(("#" + (tabRoute.id))).length) {
-      tabEl = $parentPageEl.find(("#" + (tabRoute.id))).eq(0);
+    if ($$1(("#" + (tabRoute.id))).length) {
+      tabEl = $$1(("#" + (tabRoute.id))).eq(0);
     } else if (router.view.selector) {
       tabEl = (router.view.selector) + " #" + (tabRoute.id);
     } else {
@@ -12206,6 +12209,13 @@
           app.preloader.init(preloaderEl);
         });
       },
+      tabInit: function tabInit(tab) {
+        var app = this;
+        if (app.theme !== 'md') { return; }
+        $$1(tab).find('.preloader').each(function (index, preloaderEl) {
+          app.preloader.init(preloaderEl);
+        });
+      }
     },
   };
 

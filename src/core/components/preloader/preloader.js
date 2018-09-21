@@ -1,4 +1,4 @@
-import $ from 'dom7';
+import $ from '../../dom7';
 import Utils from '../../utils/utils';
 
 const Preloader = {
@@ -59,5 +59,12 @@ export default {
         app.preloader.init(preloaderEl);
       });
     },
+    tabInit(tab) {
+      const app = this;
+      if (app.theme !== 'md') return;
+      $(tab).find('.preloader').each((index, preloaderEl) => {
+        app.preloader.init(preloaderEl);
+      });
+    }
   },
 };

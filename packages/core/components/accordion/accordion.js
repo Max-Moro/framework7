@@ -1,5 +1,5 @@
 /* eslint no-underscore-dangle: ["error", { "allow": ["_clientLeft"] }] */
-import $ from 'dom7';
+import $ from '../../dom7';
 import Utils from '../../utils/utils';
 
 const Accordion = {

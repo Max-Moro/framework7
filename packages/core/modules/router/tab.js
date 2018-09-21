@@ -1,4 +1,4 @@
-import $ from 'dom7';
+import $ from '../../dom7';
 import Utils from '../../utils/utils';
 import History from '../../utils/history';
 
@@ -50,8 +50,8 @@ function tabLoad(tabRoute, loadOptions = {}) {
   // Show Tab
   const $parentPageEl = $(options.parentPageEl || router.currentPageEl);
   let tabEl;
-  if ($parentPageEl.length && $parentPageEl.find(`#${tabRoute.id}`).length) {
-    tabEl = $parentPageEl.find(`#${tabRoute.id}`).eq(0);
+  if ($(`#${tabRoute.id}`).length) {
+    tabEl = $(`#${tabRoute.id}`).eq(0);
   } else if (router.view.selector) {
     tabEl = `${router.view.selector} #${tabRoute.id}`;
   } else {

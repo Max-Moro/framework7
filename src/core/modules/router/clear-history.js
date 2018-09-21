@@ -1,4 +1,4 @@
-import $ from 'dom7';
+import $ from '../../dom7';
 
 function clearHistory() {
   const router = this;
