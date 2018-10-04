@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: September 21, 2018
+ * Released on: October 4, 2018
  */
 html {
   direction: rtl;
@@ -2555,7 +2555,7 @@ li.list-group-title:before {
   transform: scaleY(0.33);
 }
 .ios .simple-list li {
-  padding-left: 15px;
+  padding-left: 10px;
   padding-right: 15px;
   line-height: 44px;
   height: 44px;

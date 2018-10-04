@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: September 21, 2018
+ * Released on: October 4, 2018
  */
 html,
 body,
@@ -3748,7 +3748,7 @@ li.list-group-title:before {
   margin-left: 5px;
 }
 .ios .list .item-media + .item-inner {
-  margin-left: 15px;
+  margin-left: 10px;
 }
 .ios .list .item-inner {
   min-height: 44px;
@@ -3784,7 +3784,7 @@ li.list-group-title:before {
 }
 .ios .list .item-content {
   min-height: 44px;
-  padding-left: 15px;
+  padding-left: 10px;
 }
 .ios .list .item-subtitle {
   font-size: 15px;
@@ -3835,7 +3835,7 @@ li.list-group-title:before {
   transform: scaleY(0.33);
 }
 .ios .simple-list li {
-  padding-left: 15px;
+  padding-left: 10px;
   padding-right: 15px;
   line-height: 44px;
   height: 44px;
@@ -3881,7 +3881,7 @@ li.list-group-title:before {
   width: auto;
 }
 .ios .links-list a {
-  padding-left: 15px;
+  padding-left: 10px;
   padding-right: 35px;
 }
 .ios .links-list a:after {
@@ -4635,7 +4635,7 @@ html.device-pixel-ratio-3 .ios li:last-child li .item-inner:after {
   margin-left: 8px;
 }
 .md .list .item-media + .item-inner {
-  margin-left: 16px;
+  margin-left: 10px;
 }
 .md .list .item-inner {
   min-height: 48px;
@@ -4665,7 +4665,7 @@ html.device-pixel-ratio-3 .ios li:last-child li .item-inner:after {
 }
 .md .list .item-content {
   min-height: 48px;
-  padding-left: 16px;
+  padding-left: 10px;
 }
 .md .list .item-subtitle {
   font-size: 14px;
@@ -4716,7 +4716,7 @@ html.device-pixel-ratio-3 .ios li:last-child li .item-inner:after {
   transform: scaleY(0.33);
 }
 .md .simple-list li {
-  padding-left: 16px;
+  padding-left: 10px;
   padding-right: 16px;
   line-height: 48px;
   height: 48px;
@@ -4760,7 +4760,7 @@ html.device-pixel-ratio-3 .ios li:last-child li .item-inner:after {
   width: auto;
 }
 .md .links-list a {
-  padding-left: 16px;
+  padding-left: 10px;
   padding-right: 42px;
 }
 .md .links-list a:after {

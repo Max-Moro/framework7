@@ -44,7 +44,7 @@
     }
     .item-media + .item-inner {
       .ltr({
-        margin-left: 15px;
+        margin-left: @spacing;
       });
       .rtl({
         margin-right: 15px;
@@ -95,7 +95,7 @@
     .item-content {
       min-height: 44px;
       .ltr({
-        padding-left: 15px;
+        padding-left: @spacing;
       });
       .rtl({
         padding-right: 15px;
@@ -134,7 +134,7 @@
   .hairline-root('.simple-list li', bottom, @blockBorderColor);
   .simple-list {
     li {
-      padding-left: 15px;
+      padding-left: @spacing;
       padding-right: 15px;
       line-height: 44px;
       height: 44px;
@@ -168,7 +168,7 @@
     }
     .ltr({
       a {
-        padding-left: 15px;
+        padding-left: @spacing;
         padding-right: 35px;
       }
       a:after {
