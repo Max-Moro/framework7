@@ -97,6 +97,8 @@ class Autocomplete extends Framework7Class {
             text: ac.params.highlightMatches ? itemText.replace(regExp, '<b>$1</b>') : itemText,
           }, i);
         }
+        if (query === '')
+          ac.emit('local::change autocompleteChange', []);
         if (itemsHTML === '' && query === '' && ac.params.dropdownPlaceholderText) {
           itemsHTML += ac.renderItem({
             placeholder: true,
