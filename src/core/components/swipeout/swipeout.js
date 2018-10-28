@@ -442,10 +442,10 @@ const Swipeout = {
       } else if (app.params.swipeout.removeElements) {
         if (app.params.swipeout.removeElementsWithTimeout) {
           setTimeout(() => {
-            $el.remove();
+            $el.hide();
           }, app.params.swipeout.removeElementsTimeout);
         } else {
-          $el.remove();
+          $el.hide();
         }
       } else {
         $el.removeClass('swipeout-deleting swipeout-transitioning');
