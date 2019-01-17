@@ -340,8 +340,10 @@ function loadBack(backParams, backOptions, ignorePageChange) {
   function resolve(pageEl, newOptions) {
     return router.backward(pageEl, Utils.extend(options, newOptions));
   }
-  function reject() {
+  function reject(xhr) {
     router.allowPageChange = true;
+    if (options.navigateReject)
+      options.navigateReject(xhr ? xhr.status : null);
     return router;
   }
 

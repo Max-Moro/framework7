@@ -794,8 +794,8 @@ class Router extends Framework7Class {
         .then((templateContent) => {
           compile(templateContent);
         })
-        .catch(() => {
-          reject();
+        .catch((xhr) => {
+          reject(xhr);
         });
     } else {
       compile(template);
@@ -868,9 +868,8 @@ class Router extends Framework7Class {
         .then((loadedComponent) => {
           compile(Component.parse(loadedComponent));
         })
-        .catch((err) => {
-          reject();
-          throw (err);
+        .catch((xhr) => {
+          reject(xhr);
         });
     } else {
       compile(component);
