@@ -3,11 +3,11 @@
  * Full featured mobile HTML framework for building iOS & Android apps
  * http://framework7.io/
  *
- * Copyright 2014-2018 Vladimir Kharlampidi
+ * Copyright 2014-2019 Vladimir Kharlampidi
  *
  * Released under the MIT License
  *
- * Released on: October 4, 2018
+ * Released on: January 17, 2019
  */
 html,
 body,
@@ -8474,6 +8474,18 @@ input[type="button"].md .card-footer a.link {
 .md .card-header a.icon-only,
 .md .card-footer a.icon-only {
   min-width: 48px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 .md .page-content > .card:last-child {
   margin-bottom: 32px;

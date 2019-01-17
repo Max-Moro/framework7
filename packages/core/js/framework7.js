@@ -3,11 +3,11 @@
  * Full featured mobile HTML framework for building iOS & Android apps
  * http://framework7.io/
  *
- * Copyright 2014-2018 Vladimir Kharlampidi
+ * Copyright 2014-2019 Vladimir Kharlampidi
  *
  * Released under the MIT License
  *
- * Released on: October 4, 2018
+ * Released on: January 17, 2019
  */
 
 (function (global, factory) {
@@ -4995,97 +4995,112 @@
     component.el = el;
 
     // Find Events
-    var events = [];
-    $$1(tempDom).find('*').each(function (index, element) {
-      var attrs = [];
-      for (var i = 0; i < element.attributes.length; i += 1) {
-        var attr = element.attributes[i];
-        if (attr.name.indexOf('@') === 0) {
-          attrs.push({
-            name: attr.name,
-            value: attr.value,
-          });
+    function abstractAttachEvents(inDom, inEvents) {
+       $$1(inDom).find('*').each(function (index, element) {
+        var attrs = [];
+        for (var i = 0; i < element.attributes.length; i += 1) {
+          var attr = element.attributes[i];
+          if (attr.name.indexOf('@') === 0) {
+            attrs.push({
+              name: attr.name,
+              value: attr.value,
+            });
+          }
         }
-      }
-      attrs.forEach(function (attr) {
-        element.removeAttribute(attr.name);
-        var event = attr.name.replace('@', '');
-        var name = event;
-        var stop = false;
-        var prevent = false;
-        var once = false;
-        if (event.indexOf('.') >= 0) {
-          event.split('.').forEach(function (eventNamePart, eventNameIndex) {
-            if (eventNameIndex === 0) { name = eventNamePart; }
-            else {
-              if (eventNamePart === 'stop') { stop = true; }
-              if (eventNamePart === 'prevent') { prevent = true; }
-              if (eventNamePart === 'once') { once = true; }
-            }
-          });
-        }
-        var value = attr.value.toString();
-        events.push({
-          el: element,
-          name: name,
-          once: once,
-          handler: function handler() {
-            var args = [], len = arguments.length;
-            while ( len-- ) args[ len ] = arguments[ len ];
-
-            var e = args[0];
-            if (stop) { e.stopPropagation(); }
-            if (prevent) { e.preventDefault(); }
-            var methodName;
-            var method;
-            var customArgs = [];
-            if (value.indexOf('(') < 0) {
-              customArgs = args;
-              methodName = value;
-            } else {
-              methodName = value.split('(')[0];
-              value.split('(')[1].split(')')[0].split(',').forEach(function (argument) {
-                var arg = argument.trim();
-                // eslint-disable-next-line
-                if (!isNaN(arg)) { arg = parseFloat(arg); }
-                else if (arg === 'true') { arg = true; }
-                else if (arg === 'false') { arg = false; }
-                else if (arg === 'null') { arg = null; }
-                else if (arg === 'undefined') { arg = undefined; }
-                else if (arg[0] === '"') { arg = arg.replace(/"/g, ''); }
-                else if (arg[0] === '\'') { arg = arg.replace(/'/g, ''); }
-                else if (arg.indexOf('.') > 0) {
-                  var deepArg;
-                  arg.split('.').forEach(function (path) {
-                    if (!deepArg) { deepArg = component; }
-                    deepArg = deepArg[path];
-                  });
-                  arg = deepArg;
-                } else {
-                  arg = component[arg];
-                }
-                customArgs.push(arg);
-              });
-            }
-            if (methodName.indexOf('.') >= 0) {
-              methodName.split('.').forEach(function (path, pathIndex) {
-                if (!method) { method = component; }
-                if (method[path]) { method = method[path]; }
-                else {
-                  throw new Error(("Component doesn't have method \"" + (methodName.split('.').slice(0, pathIndex + 1).join('.')) + "\""));
-                }
-              });
-            } else {
-              if (!component[methodName]) {
-                throw new Error(("Component doesn't have method \"" + methodName + "\""));
+        attrs.forEach(function (attr) {
+          element.removeAttribute(attr.name);
+          var event = attr.name.replace('@', '');
+          var name = event;
+          var stop = false;
+          var prevent = false;
+          var once = false;
+          if (event.indexOf('.') >= 0) {
+            event.split('.').forEach(function (eventNamePart, eventNameIndex) {
+              if (eventNameIndex === 0) { name = eventNamePart; }
+              else {
+                if (eventNamePart === 'stop') { stop = true; }
+                if (eventNamePart === 'prevent') { prevent = true; }
+                if (eventNamePart === 'once') { once = true; }
               }
-              method = component[methodName];
-            }
-            method.apply(void 0, customArgs);
-          },
+            });
+          }
+          var value = attr.value.toString();
+          inEvents.push({
+            el: element,
+            name: name,
+            once: once,
+            handler: function handler() {
+              var args = [], len = arguments.length;
+              while ( len-- ) args[ len ] = arguments[ len ];
+
+              var e = args[0];
+              if (stop) { e.stopPropagation(); }
+              if (prevent) { e.preventDefault(); }
+              var methodName;
+              var method;
+              var customArgs = [];
+              if (value.indexOf('(') < 0) {
+                customArgs = args;
+                methodName = value;
+              } else {
+                methodName = value.split('(')[0];
+                value.split('(')[1].split(')')[0].split(',').forEach(function (argument) {
+                  var arg = argument.trim();
+                  // eslint-disable-next-line
+                  if (!isNaN(arg)) { arg = parseFloat(arg); }
+                  else if (arg === 'true') { arg = true; }
+                  else if (arg === 'false') { arg = false; }
+                  else if (arg === 'null') { arg = null; }
+                  else if (arg === 'undefined') { arg = undefined; }
+                  else if (arg[0] === '"') { arg = arg.replace(/"/g, ''); }
+                  else if (arg[0] === '\'') { arg = arg.replace(/'/g, ''); }
+                  else if (arg.indexOf('.') > 0) {
+                    var deepArg;
+                    arg.split('.').forEach(function (path) {
+                      if (!deepArg) { deepArg = component; }
+                      deepArg = deepArg[path];
+                    });
+                    arg = deepArg;
+                  } else {
+                    arg = component[arg];
+                  }
+                  customArgs.push(arg);
+                });
+              }
+              if (methodName.indexOf('.') >= 0) {
+                methodName.split('.').forEach(function (path, pathIndex) {
+                  if (!method) { method = component; }
+                  if (method[path]) { method = method[path]; }
+                  else {
+                    throw new Error(("Component doesn't have method \"" + (methodName.split('.').slice(0, pathIndex + 1).join('.')) + "\""));
+                  }
+                });
+              } else {
+                if (!component[methodName]) {
+                  throw new Error(("Component doesn't have method \"" + methodName + "\""));
+                }
+                method = component[methodName];
+              }
+              method.apply(void 0, customArgs);
+            },
+          });
         });
       });
-    });
+    }
+
+    var events = [];
+    function innerAttachEvents() {
+      abstractAttachEvents(tempDom, events);
+    }
+    function additinalAttachEvents(inDom) {
+      var additinalEvents = [];
+      abstractAttachEvents(inDom, additinalEvents);
+      additinalEvents.forEach(function (event) {
+        $$1(event.el)[event.once ? 'once' : 'on'](event.name, event.handler);
+      });
+    }
+
+    innerAttachEvents();
 
     // Set styles scope ID
     var styleEl;
@@ -5157,6 +5172,8 @@
       Utils.deleteProps(component);
       component = null;
     };
+
+    component.$additinalAttachEvents = additinalAttachEvents;
 
     // Store component instance
     for (var i = 0; i < tempDom.children.length; i += 1) {
@@ -6293,8 +6310,10 @@
     function resolve(pageEl, newOptions) {
       return router.forward(pageEl, Utils.extend(options, newOptions));
     }
-    function reject() {
+    function reject(xhr) {
       router.allowPageChange = true;
+      if (options.navigateReject)
+        { options.navigateReject(xhr ? xhr.status : null); }
       return router;
     }
 
@@ -7220,8 +7239,10 @@
     function resolve(pageEl, newOptions) {
       return router.backward(pageEl, Utils.extend(options, newOptions));
     }
-    function reject() {
+    function reject(xhr) {
       router.allowPageChange = true;
+      if (options.navigateReject)
+        { options.navigateReject(xhr ? xhr.status : null); }
       return router;
     }
 
@@ -8288,8 +8309,8 @@
           .then(function (templateContent) {
             compile(templateContent);
           })
-          .catch(function () {
-            reject();
+          .catch(function (xhr) {
+            reject(xhr);
           });
       } else {
         compile(template);
@@ -8366,9 +8387,8 @@
           .then(function (loadedComponent) {
             compile(Component.parse(loadedComponent));
           })
-          .catch(function (err) {
-            reject();
-            throw (err);
+          .catch(function (xhr) {
+            reject(xhr);
           });
       } else {
         compile(component);
@@ -13062,10 +13082,10 @@
         } else if (app.params.swipeout.removeElements) {
           if (app.params.swipeout.removeElementsWithTimeout) {
             setTimeout(function () {
-              $el.remove();
+              $el.hide();
             }, app.params.swipeout.removeElementsTimeout);
           } else {
-            $el.remove();
+            $el.hide();
           }
         } else {
           $el.removeClass('swipeout-deleting swipeout-transitioning');
@@ -29551,6 +29571,8 @@
               text: ac.params.highlightMatches ? itemText.replace(regExp, '<b>$1</b>') : itemText,
             }, i);
           }
+          if (query === '')
+            { ac.emit('local::change autocompleteChange', []); }
           if (itemsHTML === '' && query === '' && ac.params.dropdownPlaceholderText) {
             itemsHTML += ac.renderItem({
               placeholder: true,
