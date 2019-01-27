@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: January 17, 2019
+ * Released on: January 27, 2019
  */
 html {
   direction: rtl;
@@ -8595,7 +8595,6 @@ textarea {
   font-size: 12px;
   width: 100%;
   line-height: 1;
-  overflow: visible;
 }
 .ios .item-label + .item-input-wrap,
 .ios .item-floating-label + .item-input-wrap {

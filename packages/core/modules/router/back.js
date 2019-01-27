@@ -291,6 +291,11 @@ function backward(el, backwardOptions) {
     if (router.params.pushState) {
       History.clearRouterQueue();
     }
+
+    // After animation callback
+    if (options.afterAnimationCallback) {
+      options.afterAnimationCallback();
+    }
   }
 
   function setPositionClasses() {

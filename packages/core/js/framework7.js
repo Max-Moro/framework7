@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: January 17, 2019
+ * Released on: January 27, 2019
  */
 
 (function (global, factory) {
@@ -7182,6 +7182,11 @@
       }
       if (router.params.pushState) {
         History.clearRouterQueue();
+      }
+
+      // After animation callback
+      if (options.afterAnimationCallback) {
+        options.afterAnimationCallback();
       }
     }
 
