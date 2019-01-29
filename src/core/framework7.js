@@ -28,6 +28,9 @@ import Subnavbar from './components/subnavbar/subnavbar';
 import TouchRipple from './components/touch-ripple/touch-ripple';
 import Modal from './components/modal/modal';
 
+// Custom Components
+import Floatbar from './components/floatbar/floatbar';
+
 //IMPORT_COMPONENTS
 
 if (process.env.FORMAT !== 'es') {
@@ -59,6 +62,7 @@ Framework7.use([
   Subnavbar,
   TouchRipple,
   Modal,
+  Floatbar,
   //INSTALL_COMPONENTS
 ]);
 
