@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: January 28, 2019
+ * Released on: February 22, 2019
  */
 html,
 body,
@@ -7371,6 +7371,40 @@ i.icon {
 .custom-modal-backdrop.backdrop-in {
   visibility: visible;
   opacity: 1;
+}
+.floatbar {
+  background: #fff;
+  width: 100%;
+  position: fixed;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  z-index: 500;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 8px;
+}
+.floatbar:after {
+  content: '';
+  position: absolute;
+  background-color: black;
+  display: block;
+  z-index: 15;
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+}
+html.device-pixel-ratio-2 .floatbar:after {
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+html.device-pixel-ratio-3 .floatbar:after {
+  -webkit-transform: scaleY(0.33);
+  transform: scaleY(0.33);
 }
 /* === Dialog === */
 .dialog-backdrop {
@@ -23237,8 +23271,8 @@ html.device-desktop .data-table .sortable-cell:not(.sortable-cell-active) .table
 }
 .ios .data-table th,
 .ios .data-table td {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 8px;
+  padding-right: 8px;
   height: 44px;
 }
 .ios .data-table th.checkbox-cell,
@@ -23543,16 +23577,16 @@ html.device-desktop .data-table .sortable-cell:not(.sortable-cell-active) .table
 }
 .md .data-table th.label-cell,
 .md .data-table td.label-cell {
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 .md .data-table th:first-child,
 .md .data-table td:first-child {
-  padding-left: 24px;
+  padding-left: 8px;
 }
 .md .data-table th:last-child,
 .md .data-table td:last-child {
-  padding-right: 24px;
+  padding-right: 8px;
 }
 .md .data-table th.checkbox-cell,
 .md .data-table td.checkbox-cell {

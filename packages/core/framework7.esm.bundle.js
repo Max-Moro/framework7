@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: January 28, 2019
+ * Released on: February 22, 2019
  */
 
 import Template7 from 'template7';
@@ -43,6 +43,9 @@ import Subnavbar from './components/subnavbar/subnavbar';
 import TouchRipple from './components/touch-ripple/touch-ripple';
 import Modal from './components/modal/modal';
 
+// Custom Components
+import Floatbar from './components/floatbar/floatbar';
+
 //IMPORT_COMPONENTS
 
 if ("es" !== 'es') {
@@ -74,6 +77,7 @@ Framework7.use([
   Subnavbar,
   TouchRipple,
   Modal,
+  Floatbar,
   //INSTALL_COMPONENTS
 ]);
 

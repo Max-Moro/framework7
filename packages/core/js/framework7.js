@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: January 28, 2019
+ * Released on: February 22, 2019
  */
 
 (function (global, factory) {
@@ -5093,11 +5093,18 @@
       abstractAttachEvents(tempDom, events);
     }
     function additinalAttachEvents(inDom) {
-      var additinalEvents = [];
-      abstractAttachEvents(inDom, additinalEvents);
-      additinalEvents.forEach(function (event) {
+      var f7Events = [];
+      abstractAttachEvents(inDom, f7Events);
+      f7Events.forEach(function (event) {
         $$1(event.el)[event.once ? 'once' : 'on'](event.name, event.handler);
       });
+    }
+    function additinalDetachEvents(inDom) {
+      if (inDom.f7Events) {
+        inDom.f7Events.forEach(function (event) {
+          $$1(event.el).off(event.name, event.handler);
+        });
+      }
     }
 
     innerAttachEvents();
@@ -5174,6 +5181,7 @@
     };
 
     component.$additinalAttachEvents = additinalAttachEvents;
+    component.$additinalDetachEvents = additinalDetachEvents;
 
     // Store component instance
     for (var i = 0; i < tempDom.children.length; i += 1) {
@@ -10524,6 +10532,110 @@
         moveToRoot: true,
         queueDialogs: true,
       },
+    },
+  };
+
+  var Floatbar = {
+
+    initSiblingMargin: function initSiblingMargin(pageEl) {
+      var $pageEl = $$1(pageEl);
+
+      var $floatbarEl = $pageEl.find('.page-content').children('.floatbar');
+      if ($floatbarEl.length === 0) {
+        $floatbarEl = $pageEl.find('.floatbar');
+      }
+      if ($floatbarEl.length === 0) {
+        return;
+      }
+      if ($floatbarEl.hasClass('siblings-expanded')) {
+        return;
+      }
+
+      // expand margin-top of the next element
+      var $nextEl = $floatbarEl.siblings().filter(function() {
+        var $this = $$1(this);
+        return $this.css('position') == 'relative' || $this.css('position') == 'block';
+      });
+
+      if ($nextEl.length !== 0) {
+        $nextEl = $$1($nextEl[0]);
+        var margin = parseInt($nextEl.css('margin-top'));
+        if (isNaN(margin)) {
+          margin = $floatbarEl.height();
+        } else {
+          margin += $floatbarEl.height() - margin/2;
+        }
+        $nextEl.css('margin-top', margin+"px");
+        $floatbarEl.addClass('siblings-expanded');
+      }
+    },
+
+    initHandleOnScroll: function initHandleOnScroll(pageEl) {
+      var app = this;
+      var $pageEl = $$1(pageEl);
+
+      var $floatbarEl = $pageEl.find('.page-content').children('.floatbar');
+      if ($floatbarEl.length === 0) {
+        $floatbarEl = $pageEl.find('.floatbar');
+      }
+      if ($floatbarEl.length === 0) {
+        return;
+      }
+
+      var $toolbarEl = $pageEl.parents('.view').find('.toolbar');
+      var $navbarEl = $pageEl.parents('.view').find('.navbar');
+      var $pageContentEl = $floatbarEl.parents('.page-content');
+
+      function handleScroll() {
+        if ($pageContentEl.length === 0) { return }
+        if (!$pageContentEl.hasClass('hide-bars-on-scroll') && !$pageContentEl.hasClass('hide-navbar-on-scroll')) { return }
+
+        var hideFb = true;
+        var toolbarBottom = 0;
+        if ($toolbarEl.length !== 0 && !app.device.ios) {
+          hideFb = hideFb && $toolbarEl.hasClass('toolbar-hidden');
+          toolbarBottom = $toolbarEl.offset().top + $toolbarEl.height();
+        }
+
+        var navbarBottom = 0;
+        if ($navbarEl.length !== 0) {
+          hideFb = hideFb && $navbarEl.hasClass('navbar-hidden');
+          navbarBottom = $navbarEl.offset().top + $navbarEl.height();
+        }
+
+        if (hideFb) {
+          $floatbarEl.css({top: "0px"});
+        } else {
+          $floatbarEl.css({top: Math.max(toolbarBottom, navbarBottom)+"px"});
+        }
+      }
+
+      $pageEl.on('scroll', '.page-content', handleScroll, true);
+      $pageEl[0].f7ScrollFloatbarHandler = handleScroll;
+    }
+
+  };
+
+
+  var Floatbar$1 = {
+    name: 'floatbar',
+
+    /* Event handlers */
+    on: {
+      pageBeforeRemove: function pageBeforeRemove(page) {
+        if (page.$el[0].f7ScrollFloatbarHandler) {
+          page.$el.off('scroll', '.page-content', page.$el[0].f7ScrollToolbarHandler, true);
+        }
+      },
+      pageBeforeIn: function pageBeforeIn(page) {
+        Floatbar.initSiblingMargin.call(app, page.$el);
+      },
+      pageInit: function pageInit(page) {
+        Floatbar.initHandleOnScroll.call(app, page.$el);
+      },
+      tabInit: function tabInit(tab) {
+        Floatbar.initSiblingMargin.call(app, tab);
+      }
     },
   };
 
@@ -31236,6 +31348,7 @@
     Subnavbar,
     TouchRipple$1,
     Modal$1,
+    Floatbar$1,
     Dialog$1,
     Popup$1,
     LoginScreen$1,

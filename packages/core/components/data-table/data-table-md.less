@@ -30,16 +30,16 @@
       padding-left: 28px;
       padding-right: 28px;
       &.label-cell {
-        padding-left: 24px;
-        padding-right: 24px;
+        padding-left: @dataTableCellPadding;
+        padding-right: @dataTableCellPadding;
       }
       &:first-child {
-        .ltr({ padding-left: 24px; });
-        .rtl({ padding-right: 24px; });
+        .ltr({ padding-left: @dataTableCellPadding; });
+        .rtl({ padding-right: @dataTableCellPadding; });
       }
       &:last-child {
-        .ltr({ padding-right: 24px; });
-        .rtl({ padding-left: 24px; });
+        .ltr({ padding-right: @dataTableCellPadding; });
+        .rtl({ padding-left: @dataTableCellPadding; });
       }
       &.checkbox-cell {
         width: 18px;
