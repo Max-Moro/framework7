@@ -196,11 +196,18 @@ class Framework7Component {
       abstractAttachEvents(tempDom, events);
     }
     function additinalAttachEvents(inDom) {
-      const additinalEvents = [];
-      abstractAttachEvents(inDom, additinalEvents);
-      additinalEvents.forEach((event) => {
+      const f7Events = [];
+      abstractAttachEvents(inDom, f7Events);
+      f7Events.forEach((event) => {
         $(event.el)[event.once ? 'once' : 'on'](event.name, event.handler);
       });
+    }
+    function additinalDetachEvents(inDom) {
+      if (inDom.f7Events) {
+        inDom.f7Events.forEach((event) => {
+          $(event.el).off(event.name, event.handler);
+        });
+      }
     }
 
     innerAttachEvents();
@@ -277,6 +284,7 @@ class Framework7Component {
     };
 
     component.$additinalAttachEvents = additinalAttachEvents;
+    component.$additinalDetachEvents = additinalDetachEvents;
 
     // Store component instance
     for (let i = 0; i < tempDom.children.length; i += 1) {
