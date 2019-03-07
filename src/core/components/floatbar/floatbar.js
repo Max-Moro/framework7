@@ -4,39 +4,6 @@ import Utils from '../../utils/utils';
 
 const Floatbar = {
 
-  initSiblingMargin(pageEl) {
-    const $pageEl = $(pageEl);
-
-    let $floatbarEl = $pageEl.find('.page-content').children('.floatbar');
-    if ($floatbarEl.length === 0) {
-      $floatbarEl = $pageEl.find('.floatbar');
-    }
-    if ($floatbarEl.length === 0) {
-      return;
-    }
-    if ($floatbarEl.hasClass('siblings-expanded')) {
-      return;
-    }
-
-    // expand margin-top of the next element
-    var $nextEl = $floatbarEl.siblings().filter(function() {
-      var $this = $(this);
-      return $this.css('position') == 'relative' || $this.css('position') == 'block';
-    });
-
-    if ($nextEl.length !== 0) {
-      $nextEl = $($nextEl[0]);
-      var margin = parseInt($nextEl.css('margin-top'));
-      if (isNaN(margin)) {
-        margin = $floatbarEl.height();
-      } else {
-        margin += $floatbarEl.height() - margin/2;
-      }
-      $nextEl.css('margin-top', margin+"px");
-      $floatbarEl.addClass('siblings-expanded');
-    }
-  },
-
   initHandleOnScroll(pageEl) {
     const app = this;
     const $pageEl = $(pageEl);
@@ -94,14 +61,8 @@ export default {
         page.$el.off('scroll', '.page-content', page.$el[0].f7ScrollToolbarHandler, true);
       }
     },
-    pageBeforeIn(page) {
-      Floatbar.initSiblingMargin.call(app, page.$el);
-    },
     pageInit(page) {
       Floatbar.initHandleOnScroll.call(app, page.$el);
-    },
-    tabInit(tab) {
-      Floatbar.initSiblingMargin.call(app, tab);
     }
   },
 };
