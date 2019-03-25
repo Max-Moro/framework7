@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: February 22, 2019
+ * Released on: March 25, 2019
  */
 
 (function (global, factory) {
@@ -10537,39 +10537,6 @@
 
   var Floatbar = {
 
-    initSiblingMargin: function initSiblingMargin(pageEl) {
-      var $pageEl = $$1(pageEl);
-
-      var $floatbarEl = $pageEl.find('.page-content').children('.floatbar');
-      if ($floatbarEl.length === 0) {
-        $floatbarEl = $pageEl.find('.floatbar');
-      }
-      if ($floatbarEl.length === 0) {
-        return;
-      }
-      if ($floatbarEl.hasClass('siblings-expanded')) {
-        return;
-      }
-
-      // expand margin-top of the next element
-      var $nextEl = $floatbarEl.siblings().filter(function() {
-        var $this = $$1(this);
-        return $this.css('position') == 'relative' || $this.css('position') == 'block';
-      });
-
-      if ($nextEl.length !== 0) {
-        $nextEl = $$1($nextEl[0]);
-        var margin = parseInt($nextEl.css('margin-top'));
-        if (isNaN(margin)) {
-          margin = $floatbarEl.height();
-        } else {
-          margin += $floatbarEl.height() - margin/2;
-        }
-        $nextEl.css('margin-top', margin+"px");
-        $floatbarEl.addClass('siblings-expanded');
-      }
-    },
-
     initHandleOnScroll: function initHandleOnScroll(pageEl) {
       var app = this;
       var $pageEl = $$1(pageEl);
@@ -10627,14 +10594,8 @@
           page.$el.off('scroll', '.page-content', page.$el[0].f7ScrollToolbarHandler, true);
         }
       },
-      pageBeforeIn: function pageBeforeIn(page) {
-        Floatbar.initSiblingMargin.call(app, page.$el);
-      },
       pageInit: function pageInit(page) {
         Floatbar.initHandleOnScroll.call(app, page.$el);
-      },
-      tabInit: function tabInit(tab) {
-        Floatbar.initSiblingMargin.call(app, tab);
       }
     },
   };
