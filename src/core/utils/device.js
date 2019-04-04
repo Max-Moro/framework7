@@ -98,8 +98,8 @@ const Device = (function Device() {
 
   // Check for status bar and fullscreen app mode
   device.needsStatusbarOverlay = function needsStatusbarOverlay() {
-    if ((device.webView || (device.android && device.cordova)) && (window.innerWidth * window.innerHeight === window.screen.width * window.screen.height)) {
-      if (device.iphoneX && (window.orientation === 90 || window.orientation === -90)) {
+    if (((device.webView || (device.android && device.cordova)) && (window.innerWidth * window.innerHeight === window.screen.width * window.screen.height)) || window.WkWebView) {
+      if (device.iphone && (window.orientation === 90 || window.orientation === -90)) {
         return false;
       }
       return true;
