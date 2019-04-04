@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: March 25, 2019
+ * Released on: April 4, 2019
  */
 
 (function (global, factory) {
@@ -2961,8 +2961,8 @@
 
     // Check for status bar and fullscreen app mode
     device.needsStatusbarOverlay = function needsStatusbarOverlay() {
-      if ((device.webView || (device.android && device.cordova)) && (win.innerWidth * win.innerHeight === win.screen.width * win.screen.height)) {
-        if (device.iphoneX && (win.orientation === 90 || win.orientation === -90)) {
+      if (((device.webView || (device.android && device.cordova)) && (win.innerWidth * win.innerHeight === win.screen.width * win.screen.height)) || win.WkWebView) {
+        if (device.iphone && (win.orientation === 90 || win.orientation === -90)) {
           return false;
         }
         return true;
