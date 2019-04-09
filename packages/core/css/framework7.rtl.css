@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: April 4, 2019
+ * Released on: April 10, 2019
  */
 html {
   direction: rtl;
@@ -7378,7 +7378,10 @@ i.icon {
 .floatbar {
   background: #fff;
   width: 100%;
-  position: fixed;
+  left: 0;
+  top: 0;
+  position: -webkit-sticky;
+  position: sticky;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   z-index: 500;
