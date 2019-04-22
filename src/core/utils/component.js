@@ -102,7 +102,7 @@ class Framework7Component {
 
     // Find Events
     function abstractAttachEvents(inDom, inEvents) {
-       $(inDom).find('*').each((index, element) => {
+       $(inDom).find('*').add(inDom).each((index, element) => {
         const attrs = [];
         for (let i = 0; i < element.attributes.length; i += 1) {
           const attr = element.attributes[i];
