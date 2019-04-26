@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: April 10, 2019
+ * Released on: April 26, 2019
  */
 
 (function (global, factory) {
@@ -4996,7 +4996,7 @@
 
     // Find Events
     function abstractAttachEvents(inDom, inEvents) {
-       $$1(inDom).find('*').each(function (index, element) {
+       $$1(inDom).find('*').add(inDom).each(function (index, element) {
         var attrs = [];
         for (var i = 0; i < element.attributes.length; i += 1) {
           var attr = element.attributes[i];
