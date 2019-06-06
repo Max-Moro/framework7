@@ -529,5 +529,12 @@ export default {
       if (!app.params.swipeout) return;
       app.swipeout.init();
     },
+    pageBeforeRemove(page) {
+      const app = this;
+      if (!app.params.swipeout) return;
+      if (Swipeout.el) {
+        app.swipeout.close(Swipeout.el);
+      }
+    },
   },
 };

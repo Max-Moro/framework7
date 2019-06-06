@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: April 26, 2019
+ * Released on: June 6, 2019
  */
 
 (function (global, factory) {
@@ -13251,6 +13251,13 @@
         var app = this;
         if (!app.params.swipeout) { return; }
         app.swipeout.init();
+      },
+      pageBeforeRemove: function pageBeforeRemove(page) {
+        var app = this;
+        if (!app.params.swipeout) { return; }
+        if (Swipeout.el) {
+          app.swipeout.close(Swipeout.el);
+        }
       },
     },
   };

@@ -7,7 +7,7 @@
  *
  * Released under the MIT License
  *
- * Released on: April 26, 2019
+ * Released on: June 6, 2019
  */
 
 import Template7 from 'template7';
@@ -46,7 +46,6 @@ import Modal from './components/modal/modal';
 // Custom Components
 import Floatbar from './components/floatbar/floatbar';
 
-//IMPORT_COMPONENTS
 
 if ("es" !== 'es') {
   if (typeof window !== 'undefined') {
@@ -78,8 +77,7 @@ Framework7.use([
   TouchRipple,
   Modal,
   Floatbar,
-  //INSTALL_COMPONENTS
-]);
+  ]);
 
 export { Template7, $ as Dom7, Request, Utils, Device, Support };
 export default Framework7;
